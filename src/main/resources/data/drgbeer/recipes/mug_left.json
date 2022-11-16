@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NWW",
+    " II"
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:planks"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "I": {
+      "tag": "c:iron_ingots"
+    }
+  },
+  "result": {
+    "item": "drgbeer:mug"
+  }
+}

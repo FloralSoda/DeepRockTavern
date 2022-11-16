@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "facing=up" : {
+      "model":  "drgbeer:blocks/barley_bulb"
+    },
+    "facing=down" : {
+      "model":  "drgbeer:blocks/barley_bulb",
+      "x": 180
+    },
+    "facing=north" : {
+      "model":  "drgbeer:blocks/barley_bulb",
+      "x": 90
+    },
+    "facing=south" : {
+      "model":  "drgbeer:blocks/barley_bulb",
+      "x": -90
+    },
+    "facing=east" : {
+      "model":  "drgbeer:blocks/barley_bulb",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west" : {
+      "model":  "drgbeer:blocks/barley_bulb",
+      "x": 90,
+      "y": -90
+    }
+  }
+}

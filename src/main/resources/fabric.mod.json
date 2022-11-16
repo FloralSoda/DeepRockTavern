@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "drgbeer",
+  "version": "${version}",
+
+  "name": "Deep Rock Tavern",
+  "description": "Adds beers from Deep Rock Galactic, as well as adding some new ones!",
+  "authors": [
+    "Hydroxa - Artist and Programmer",
+    "Nimeirria - Model Artist"
+  ],
+  "contributors": [
+    "Ghostship Games - Original Game and Some Sound Files I used"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+  "license": "CC4.0",
+  "icon": "assets/drgbeer/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.hydroxa.drgbeer.DRGBeerMod"
+    ],
+    "client" : [
+      "net.hydroxa.drgbeer.DRGBeerClientMod"
+    ]
+  },
+  "mixins": [
+    "drgbeer.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "~1.18.2",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

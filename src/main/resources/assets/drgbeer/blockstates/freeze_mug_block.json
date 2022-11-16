@@ -1,0 +1,24 @@
+{
+  "multipart": [
+    {
+      "when": {"facing": "north"},
+      "apply": {"model": "drgbeer:blocks/mug"}
+    },
+    {
+      "when": {"facing": "east"},
+      "apply": {"model": "drgbeer:blocks/mug", "y": 90}
+    },
+    {
+      "when": {"facing": "south"},
+      "apply": {"model": "drgbeer:blocks/mug", "y": 180}
+    },
+    {
+      "when": {"facing": "west"},
+      "apply": {"model": "drgbeer:blocks/mug", "y": -90}
+    },
+    {
+      "when": {"has_drink": "true"},
+      "apply": {"model": "drgbeer:blocks/freeze_foam"}
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "facing=up" : {
+      "model":  "drgbeer:blocks/malt_star"
+    },
+    "facing=down" : {
+      "model":  "drgbeer:blocks/malt_star",
+      "x": 180
+    },
+    "facing=north" : {
+      "model":  "drgbeer:blocks/malt_star",
+      "x": 90
+    },
+    "facing=south" : {
+      "model":  "drgbeer:blocks/malt_star",
+      "x": -90
+    },
+    "facing=east" : {
+      "model":  "drgbeer:blocks/malt_star",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west" : {
+      "model":  "drgbeer:blocks/malt_star",
+      "x": 90,
+      "y": -90
+    }
+  }
+}

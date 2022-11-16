@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "facing=up" : {
+      "model":  "drgbeer:blocks/boolo_cap"
+    },
+    "facing=down" : {
+      "model":  "drgbeer:blocks/boolo_cap",
+      "x": 180
+    },
+    "facing=north" : {
+      "model":  "drgbeer:blocks/boolo_cap",
+      "x": 90
+    },
+    "facing=south" : {
+      "model":  "drgbeer:blocks/boolo_cap",
+      "x": -90
+    },
+    "facing=east" : {
+      "model":  "drgbeer:blocks/boolo_cap",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west" : {
+      "model":  "drgbeer:blocks/boolo_cap",
+      "x": 90,
+      "y": -90
+    }
+  }
+}

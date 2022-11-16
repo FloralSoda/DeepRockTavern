@@ -1,0 +1,9 @@
+{
+  "fart": {
+    "subtitle": "sounds.drgbeer.fart",
+    "sounds": [
+      "drgbeer:fart",
+      "drgbeer:fart2-drg"
+    ]
+  }
+}
