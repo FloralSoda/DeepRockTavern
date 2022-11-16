@@ -9,7 +9,6 @@ import net.hydroxa.drgbeer.item.custom.MilkMugItem;
 import net.hydroxa.drgbeer.item.custom.MugItem;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
-import net.minecraft.potion.Potions;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -158,6 +157,16 @@ public enum ModItems {
             100,
             5,
             20
+    )),
+    FORTUNE_MUG("fortune_mug", new MugItem(
+            new FabricItemSettings().
+                    group(DRGBeerItemGroups.DRINKS).
+                    maxCount(4),
+            ModBlocks.FORTUNE_MUG.asBlock(),
+            ModEffects.FORTUNE,
+            36000,
+            0,
+            16
     )),
     CHORUS_MUG("chorus_mug", new MugItem(
             new FabricItemSettings().

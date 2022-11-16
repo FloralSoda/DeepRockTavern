@@ -19,6 +19,8 @@ public class BlackoutEffect extends StatusEffect {
     @Override
     public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
         entity.setVelocity(0, 0.1, 0);
+        if (entity.getStatusEffects().size() > 0)
+            entity.clearStatusEffects();
         super.onRemoved(entity, attributes, amplifier);
     }
 }
