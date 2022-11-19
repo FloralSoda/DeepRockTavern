@@ -22,7 +22,7 @@ public class FartyEffect extends StatusEffect {
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
         if (entity.world.random.nextFloat() < 0.2) {
             entity.playSound(ModSounds.FART, 1, entity.world.random.nextFloat(0.8f,2f));
-            entity.addVelocity(0, thrust, 0);
+            entity.addVelocity(0, thrust * amplifier, 0);
         }
         super.applyUpdateEffect(entity, amplifier);
     }

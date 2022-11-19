@@ -4,8 +4,9 @@
   "package": "net.hydroxa.drgbeer.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "PlayerEntityMixin",
     "EntityMixin",
-    "PlayerEntityMixin"
+    "BlockMixin"
   ],
   "server": [
   ],

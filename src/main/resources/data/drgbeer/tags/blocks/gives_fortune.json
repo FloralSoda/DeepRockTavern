@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:mossy_cobblestone",
+    "minecraft:netherrack",
+    "minecraft:basalt",
+    "#minecraft:stone_ore_replaceables",
+    "#c:ores",
+    "#minecraft:moss_replaceable"
+  ]
+}
