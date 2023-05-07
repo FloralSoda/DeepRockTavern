@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "facing=up" : {
+      "model":  "drgbeer:blocks/starch_nut"
+    },
+    "facing=down" : {
+      "model":  "drgbeer:blocks/starch_nut",
+      "x": 180
+    },
+    "facing=north" : {
+      "model":  "drgbeer:blocks/starch_nut",
+      "x": 90
+    },
+    "facing=south" : {
+      "model":  "drgbeer:blocks/starch_nut",
+      "x": -90
+    },
+    "facing=east" : {
+      "model":  "drgbeer:blocks/starch_nut",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west" : {
+      "model":  "drgbeer:blocks/starch_nut",
+      "x": 90,
+      "y": -90
+    }
+  }
+}
