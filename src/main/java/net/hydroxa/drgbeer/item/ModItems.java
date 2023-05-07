@@ -148,11 +148,11 @@ public enum ModItems {
             5,
             20
     )),
-    POISON_MUG("poison_mug", new MugItem(
+    EXPLOSIVE_MUG("explosive_mug", new MugItem(
             new FabricItemSettings().
                     group(DRGBeerItemGroups.DRINKS).
                     maxCount(4),
-            ModBlocks.POISON_MUG.asBlock(),
+            ModBlocks.EXPLOSIVE_MUG.asBlock(),
             StatusEffects.POISON,
             100,
             5,
@@ -174,7 +174,7 @@ public enum ModItems {
                     maxCount(4),
             ModBlocks.CHORUS_MUG.asBlock(),
             ModEffects.WORMHOLE,
-            10,
+            300,
             0,
             25
     ));
