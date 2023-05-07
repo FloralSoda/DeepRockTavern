@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "drgbeer:block/poison_foam",
-		"particle": "drgbeer:block/poison_foam"
+		"0": "drgbeer:block/explosive_foam",
+		"particle": "drgbeer:block/explosive_foam"
 	},
 	"elements": [
 		{

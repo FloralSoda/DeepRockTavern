@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "drgbeer:item/mug",
-		"1": "drgbeer:block/poison_foam",
+		"1": "drgbeer:block/explosive_foam",
 		"particle": "drgbeer:item/mug"
 	},
 	"elements": [

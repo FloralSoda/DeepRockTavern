@@ -1,11 +1,10 @@
 package net.hydroxa.drgbeer.item.custom;
 
-import net.hydroxa.drgbeer.DRGBeerMod;
 import net.hydroxa.drgbeer.effect.ModEffects;
+import net.hydroxa.drgbeer.effect.TipsyEffect;
 import net.hydroxa.drgbeer.item.ModItems;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
-import net.minecraft.client.input.KeyboardInput;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -84,14 +83,16 @@ public class MugItem extends BlockItem {
                         blackoutEntity(user);
                     } else {
                         user.removeStatusEffect(ModEffects.TIPSY);
-                        user.addStatusEffect(new StatusEffectInstance(ModEffects.TIPSY, 480 * (tipsy.getAmplifier() + 2), tipsy.getAmplifier() + Tipsiness));
+
+                        int newAmp = tipsy.getAmplifier() + Tipsiness;
+                        user.addStatusEffect(new StatusEffectInstance(ModEffects.TIPSY, TipsyEffect.TIME_PER_LEVEL * newAmp, newAmp));
                     }
                 }
             } else {
                 if (Tipsiness >= 100) {
                     blackoutEntity(user);
                 } else {
-                    user.addStatusEffect(new StatusEffectInstance(ModEffects.TIPSY, 480 * Tipsiness, Tipsiness));
+                    user.addStatusEffect(new StatusEffectInstance(ModEffects.TIPSY, TipsyEffect.TIME_PER_LEVEL * Tipsiness, Tipsiness));
                 }
             }
         }

@@ -13,10 +13,10 @@ import net.minecraft.world.gen.feature.*;
 
 public class ModConfiguredFeatures {
 
-    public static final Feature<HopPlantFeatureConfig> BOOLO_CAP_FEATURE = Registry.register(Registry.FEATURE, "boolo_cap", new HopPlantFeature(HopPlantFeatureConfig.CODEC));;
-    public static final RegistryEntry<ConfiguredFeature<HopPlantFeatureConfig, ?>> BOOLO_CAP =
-            ConfiguredFeatures.register("boolo_cap", BOOLO_CAP_FEATURE,
-                new HopPlantFeatureConfig(20, true, true, true, RegistryEntryList.of(Block::getRegistryEntry, Blocks.STONE, Blocks.ANDESITE, Blocks.DIORITE, Blocks.GRANITE, Blocks.DRIPSTONE_BLOCK, Blocks.CALCITE, Blocks.TUFF, Blocks.DEEPSLATE, Blocks.MOSS_BLOCK, Blocks.OAK_LOG), RegistryEntryList.of(Block::getRegistryEntry, ModBlocks.BOOLO_CAP.asBlock(), ModBlocks.BARLEY_BULB.asBlock(), ModBlocks.MALT_STAR.asBlock())));
+    public static final Feature<HopPlantFeatureConfig> HOP_PLANT_FEATURE = Registry.register(Registry.FEATURE, "hop_plant", new HopPlantFeature(HopPlantFeatureConfig.CODEC));
+    public static final RegistryEntry<ConfiguredFeature<HopPlantFeatureConfig, ?>> HOP_PLANT =
+            ConfiguredFeatures.register("hop_plant", HOP_PLANT_FEATURE,
+                new HopPlantFeatureConfig(20, true, true, true, RegistryEntryList.of(Block::getRegistryEntry, Blocks.STONE, Blocks.ANDESITE, Blocks.DIORITE, Blocks.GRANITE, Blocks.DRIPSTONE_BLOCK, Blocks.CALCITE, Blocks.TUFF, Blocks.DEEPSLATE, Blocks.MOSS_BLOCK, Blocks.OAK_LOG), RegistryEntryList.of(Block::getRegistryEntry, ModBlocks.BOOLO_CAP.asBlock(), ModBlocks.BARLEY_BULB.asBlock(), ModBlocks.MALT_STAR.asBlock(), ModBlocks.YEAST_CONE.asBlock(), ModBlocks.STARCH_NUT.asBlock())));
 
     public static void registerConfiguredFeatures() {
         DRGBeerMod.LOGGER.info("Registering Configured Features");
