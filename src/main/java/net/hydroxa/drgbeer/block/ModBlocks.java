@@ -201,7 +201,7 @@ public enum ModBlocks {
                     sounds(BlockSoundGroup.METAL),
             true
     )),
-    POISON_MUG("poison_mug_block", new MugBlock(
+    EXPLOSIVE_MUG("explosive_mug_block", new MugBlock(
             FabricBlockSettings.
                     of(Material.METAL).
                     breakInstantly().
