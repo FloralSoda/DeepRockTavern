@@ -10,6 +10,7 @@ import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
@@ -21,6 +22,13 @@ import java.util.Objects;
 public class HopPlantBlock extends Block implements Waterloggable {
     private static final DirectionProperty FACING = Properties.FACING;
     private static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
+
+    protected static final VoxelShape BOUNDING_SHAPE_UP = Block.createCuboidShape(2.5, 0.0, 2.5, 13.5, 14.0, 13.5);
+    protected static final VoxelShape BOUNDING_SHAPE_DOWN = Block.createCuboidShape(2.5, 2.0, 2.5, 13.5, 16.0, 13.5);
+    protected static final VoxelShape BOUNDING_SHAPE_WEST = Block.createCuboidShape(2, 2.5, 2.5, 16, 13.5, 13.5);
+    protected static final VoxelShape BOUNDING_SHAPE_NORTH = Block.createCuboidShape(2.5, 2.5, 2.0, 13.5, 13.5, 16);
+    protected static final VoxelShape BOUNDING_SHAPE_EAST = Block.createCuboidShape(0, 2.5, 2.5, 14, 13.5, 13.5);
+    protected static final VoxelShape BOUNDING_SHAPE_SOUTH = Block.createCuboidShape(2.5, 2.5, 0, 13.5, 13.5, 14.0);
     public HopPlantBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.UP));
@@ -77,5 +85,30 @@ public class HopPlantBlock extends Block implements Waterloggable {
 
     private boolean isWaterlogged() {
         return this.stateManager.getProperties().contains(Properties.WATERLOGGED);
+    }
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        Direction direction = state.get(FACING);
+        switch (direction) {
+            case DOWN -> {
+                return BOUNDING_SHAPE_DOWN;
+            }
+            case WEST -> {
+                return BOUNDING_SHAPE_WEST;
+            }
+            case EAST -> {
+                return BOUNDING_SHAPE_EAST;
+            }
+            case SOUTH -> {
+                return BOUNDING_SHAPE_SOUTH;
+            }
+            case NORTH -> {
+                return BOUNDING_SHAPE_NORTH;
+            }
+            default -> {
+                return BOUNDING_SHAPE_UP;
+            }
+        }
     }
 }

@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "facing=up" : {
+      "model":  "drgbeer:blocks/yeast_cone"
+    },
+    "facing=down" : {
+      "model":  "drgbeer:blocks/yeast_cone",
+      "x": 180
+    },
+    "facing=north" : {
+      "model":  "drgbeer:blocks/yeast_cone",
+      "x": 90
+    },
+    "facing=south" : {
+      "model":  "drgbeer:blocks/yeast_cone",
+      "x": -90
+    },
+    "facing=east" : {
+      "model":  "drgbeer:blocks/yeast_cone",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west" : {
+      "model":  "drgbeer:blocks/yeast_cone",
+      "x": 90,
+      "y": -90
+    }
+  }
+}
