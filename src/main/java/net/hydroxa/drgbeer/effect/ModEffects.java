@@ -18,6 +18,7 @@ public class ModEffects {
     public static StatusEffect FORTUNE;
     public static StatusEffect FEATHER_FALL;
     public static StatusEffect EXPLOSIVE;
+    public static StatusEffect ENFLAME;
 
 
     public static StatusEffect registerStatusEffect(String name, StatusEffect effect) {
@@ -47,6 +48,8 @@ public class ModEffects {
         FEATHER_FALL = registerStatusEffect("feather_fall",
                 new FeatherFallEffect(StatusEffectCategory.BENEFICIAL, 0xFFFFCC));
         EXPLOSIVE = registerStatusEffect("explosive",
-                new ExplosiveEffect(StatusEffectCategory.HARMFUL, 0xFFFFCC));
+                new ExplosiveEffect(StatusEffectCategory.HARMFUL, 0xFF9933));
+        ENFLAME = registerStatusEffect("enflame",
+                new EnflameEffect(StatusEffectCategory.HARMFUL, 0xFF6600));
     }
 }

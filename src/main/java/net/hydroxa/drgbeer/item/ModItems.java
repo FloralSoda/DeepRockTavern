@@ -187,6 +187,16 @@ public enum ModItems {
             36000,
             0,
             10
+    )),
+    ENFLAME_MUG("enflame_mug", new MugItem(
+            new FabricItemSettings().
+                    group(DRGBeerItemGroups.DRINKS).
+                    maxCount(4),
+            ModBlocks.ENFLAME_MUG.asBlock(),
+            ModEffects.ENFLAME,
+            480,
+            0,
+            17
     ));
 
     public static void registerItems() {

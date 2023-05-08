@@ -22,6 +22,7 @@ public class TipsyEffect extends StatusEffect {
 
     @Override
     public void onApplied(LivingEntity user, AttributeContainer attributes, int amplifier) {
+        super.onApplied(user,attributes,amplifier);
         alterDirection(user);
     }
 
