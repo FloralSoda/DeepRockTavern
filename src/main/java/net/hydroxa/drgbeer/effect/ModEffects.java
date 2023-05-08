@@ -19,6 +19,7 @@ public class ModEffects {
     public static StatusEffect FEATHER_FALL;
     public static StatusEffect EXPLOSIVE;
     public static StatusEffect ENFLAME;
+    public static StatusEffect LOW_GRAVITY;
 
 
     public static StatusEffect registerStatusEffect(String name, StatusEffect effect) {
@@ -51,5 +52,7 @@ public class ModEffects {
                 new ExplosiveEffect(StatusEffectCategory.HARMFUL, 0xFF9933));
         ENFLAME = registerStatusEffect("enflame",
                 new EnflameEffect(StatusEffectCategory.HARMFUL, 0xFF6600));
+        LOW_GRAVITY = registerStatusEffect("low_gravity",
+                new EnflameEffect(StatusEffectCategory.NEUTRAL, 0xE6F2FF));
     }
 }

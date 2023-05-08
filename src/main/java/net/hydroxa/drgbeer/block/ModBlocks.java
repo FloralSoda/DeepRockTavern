@@ -65,14 +65,6 @@ public enum ModBlocks {
                     sounds(BlockSoundGroup.METAL),
             false
     )),
-//    BEER_MUG("beer_mug_block", new MugBlock(
-//            FabricBlockSettings.
-//                    of(Material.METAL).
-//                    breakInstantly().
-//                    nonOpaque().
-//                    sounds(BlockSoundGroup.METAL),
-//            true
-//    )),
     BLACKOUT_MUG("blackout_mug_block", new MugBlock(
             FabricBlockSettings.
                     of(Material.METAL).

@@ -188,6 +188,16 @@ public enum ModItems {
             0,
             10
     )),
+    LOW_GRAVITY_MUG("low_gravity_mug", new MugItem(
+            new FabricItemSettings().
+                    group(DRGBeerItemGroups.DRINKS).
+                    maxCount(4),
+            ModBlocks.LOW_GRAVITY_MUG.asBlock(),
+            ModEffects.LOW_GRAVITY,
+            480,
+            0,
+            17
+    )),
     ENFLAME_MUG("enflame_mug", new MugItem(
             new FabricItemSettings().
                     group(DRGBeerItemGroups.DRINKS).

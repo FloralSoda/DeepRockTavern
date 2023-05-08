@@ -54,6 +54,7 @@
   "effect.drgbeer.enflame": "Combustion",
   "effect.drgbeer.feather_fall": "Feather Falling",
   "effect.drgbeer.explosive": "Explosive",
+  "effect.drgbeer.low_gravity": "Moon Gravity",
 
   "sounds.drgbeer.fart": "%s Farts"
 }

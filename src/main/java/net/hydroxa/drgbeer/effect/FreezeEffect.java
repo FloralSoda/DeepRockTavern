@@ -7,6 +7,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 
 public class FreezeEffect extends StatusEffect {
@@ -18,7 +19,7 @@ public class FreezeEffect extends StatusEffect {
     public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
         super.onApplied(entity, attributes, amplifier);
         entity.setInPowderSnow(true);
-        entity.playSound(SoundEvents.ENTITY_PLAYER_HURT_FREEZE, 1, 1.5f);
+        entity.world.playSound(entity.getX(), entity.getY(), entity.getZ(), SoundEvents.ENTITY_PLAYER_HURT_FREEZE, SoundCategory.PLAYERS, 1f, 1.5f, true);
         if (entity.world.getBlockState(entity.getBlockPos()).isOf(Blocks.WATER)) {
             entity.world.setBlockState(entity.getBlockPos(), Blocks.ICE.getDefaultState());
         }
