@@ -153,9 +153,9 @@ public enum ModItems {
                     group(DRGBeerItemGroups.DRINKS).
                     maxCount(4),
             ModBlocks.EXPLOSIVE_MUG.asBlock(),
-            StatusEffects.POISON,
-            100,
-            5,
+            ModEffects.EXPLOSIVE,
+            1200,
+            0,
             20
     )),
     FORTUNE_MUG("fortune_mug", new MugItem(

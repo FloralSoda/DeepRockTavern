@@ -1,6 +1,5 @@
 package net.hydroxa.drgbeer.effect;
 
-import net.hydroxa.drgbeer.DRGBeerMod;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
@@ -31,8 +30,6 @@ public class TipsyEffect extends StatusEffect {
         tendTowards = new Vec3d(lookVec.getZ(), 0, lookVec.getX());
         float theta = entity.world.random.nextFloat(-ANGLE_DEVIATION, ANGLE_DEVIATION);
         tendTowards = tendTowards.rotateY(theta).normalize();
-
-        DRGBeerMod.LOGGER.info("Change to {}",tendTowards);
     }
 
     @Override
@@ -50,13 +47,6 @@ public class TipsyEffect extends StatusEffect {
             entity.addVelocity(currentDirection.x, 0, currentDirection.z);
         }
     }
-
-//    @Override
-//    public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-//        if (amplifier > 0) {
-//            entity.addStatusEffect(new StatusEffectInstance(ModEffects.TIPSY, TIME_PER_LEVEL, amplifier - 1));
-//        }
-//    }
 
     @Override
     public boolean canApplyUpdateEffect(int duration, int amplifier) {
