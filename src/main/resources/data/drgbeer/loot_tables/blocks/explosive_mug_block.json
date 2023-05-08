@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "drgbeer:beer_mug"
+          "name": "drgbeer:explosive_mug"
         }
       ],
       "conditions": [

@@ -1,8 +1,6 @@
 package net.hydroxa.drgbeer.effect;
 
 import net.hydroxa.drgbeer.DRGBeerMod;
-import net.minecraft.entity.attribute.EntityAttributeModifier;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.util.Identifier;
@@ -18,6 +16,7 @@ public class ModEffects {
     public static StatusEffect WATER;
     public static StatusEffect FARTY;
     public static StatusEffect FORTUNE;
+    public static StatusEffect FEATHER_FALL;
 
 
     public static StatusEffect registerStatusEffect(String name, StatusEffect effect) {
@@ -44,5 +43,7 @@ public class ModEffects {
                 new FartyEffect(StatusEffectCategory.NEUTRAL, 0x337700));
         FORTUNE = registerStatusEffect("fortune",
                 new FortuneEffect(StatusEffectCategory.BENEFICIAL, 0x5500AA));
+        FEATHER_FALL = registerStatusEffect("feather_fall",
+                new FeatherFallEffect(StatusEffectCategory.BENEFICIAL, 0xFFFFCC));
     }
 }

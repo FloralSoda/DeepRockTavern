@@ -11,7 +11,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Entity.class)
-public class EntityMixin {
+public abstract class EntityMixin {
+
     @Inject(method = "setYaw(F)V",at=@At("HEAD"),cancellable = true)
     public void freezeCameraYaw(CallbackInfo callback) {
         if ((Object)this instanceof PlayerEntity pe) {

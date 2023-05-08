@@ -177,6 +177,16 @@ public enum ModItems {
             300,
             0,
             25
+    )),
+    FEATHER_FALL_MUG("feather_fall_mug", new MugItem(
+            new FabricItemSettings().
+                    group(DRGBeerItemGroups.DRINKS).
+                    maxCount(4),
+            ModBlocks.FEATHER_FALL_MUG.asBlock(),
+            ModEffects.FEATHER_FALL,
+            36000,
+            0,
+            10
     ));
 
     public static void registerItems() {
