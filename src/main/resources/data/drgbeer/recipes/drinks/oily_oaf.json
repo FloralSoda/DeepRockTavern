@@ -1,0 +1,11 @@
+{
+  "type": "drgbeer:drink_recipe",
+  "hops": [
+    {
+      "item": "drgbeer:boolo_cap"
+    }
+  ],
+  "solution": {"item": "minecraft:milk_bucket"},
+  "outputItem": "drgbeer:sfw_tipsy_mug",
+  "time": "5"
+}

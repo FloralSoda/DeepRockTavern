@@ -18,6 +18,9 @@ public class ModTags {
     }
 
     public static class Items {
+        public static final TagKey<Item> HOPS = createLocalTag("hops");
+        public static final TagKey<Item> CATALYSTS = createLocalTag("catalysts");
+        public static final TagKey<Item> SOLUTIONS = createLocalTag("solutions");
         public static TagKey<Item> createLocalTag(String name) {
             return TagKey.of(Registry.ITEM_KEY, new Identifier(DRGBeerMod.MOD_ID, name));
         }

@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hydroxa.drgbeer.DRGBeerItemGroups;
 import net.hydroxa.drgbeer.DRGBeerMod;
+import net.hydroxa.drgbeer.block.custom.BarrelBlock;
 import net.hydroxa.drgbeer.block.custom.HopPlantBlock;
 import net.hydroxa.drgbeer.block.custom.MugBlock;
 import net.hydroxa.drgbeer.item.ModItems;
@@ -57,6 +58,13 @@ public enum ModBlocks {
                     noCollision().
                     nonOpaque().
                     sounds(BlockSoundGroup.SLIME))),
+    BARREL("barrel", DRGBeerItemGroups.GENERIC, new BarrelBlock(
+            FabricBlockSettings.
+                    of(Material.WOOD).
+                    ticksRandomly().
+                    nonOpaque().
+                    sounds(BlockSoundGroup.WOOD)
+    )),
     MUG_BLOCK("mug_block", new MugBlock(
             FabricBlockSettings.
                     of(Material.METAL).

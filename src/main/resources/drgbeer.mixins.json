@@ -7,7 +7,8 @@
     "PlayerEntityMixin",
     "BlockMixin",
     "LivingEntityMixin",
-    "EntityMixin"
+    "EntityMixin",
+    "BucketItemAccessor"
   ],
   "server": [
   ],

@@ -1,6 +1,5 @@
 package net.hydroxa.drgbeer.mixin;
 
-import net.hydroxa.drgbeer.DRGBeerMod;
 import net.hydroxa.drgbeer.effect.FeatherFallEffect;
 import net.hydroxa.drgbeer.effect.LowGravityEffect;
 import net.hydroxa.drgbeer.effect.ModEffects;
@@ -45,7 +44,6 @@ public abstract class LivingEntityMixin extends Entity {
     private static final float MINECRAFT_GRAVITY = 0.08f;
     @Inject(method = "travel(Lnet/minecraft/util/math/Vec3d;)V", at = @At(value = "TAIL", target = "Lnet/minecraft/entity/LivingEntity;travel(Lnet/minecraft/util/math/Vec3d;)V"))
     public void applyGravity(CallbackInfo ci) {
-        DRGBeerMod.LOGGER.info("Meow");
         if (!hasNoGravity() && !isSubmergedInWater() && !isInLava() && !isFallFlying() && !hasStatusEffect(StatusEffects.SLOW_FALLING) && hasStatusEffect(ModEffects.LOW_GRAVITY)) {
             double newGravity = MINECRAFT_GRAVITY / LowGravityEffect.GRAVITY;
             setVelocity(getVelocity().add(0, newGravity, 0));

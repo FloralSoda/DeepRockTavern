@@ -5,10 +5,13 @@ import net.hydroxa.drgbeer.block.ModBlocks;
 import net.hydroxa.drgbeer.block.entity.ModBlockEntities;
 import net.hydroxa.drgbeer.effect.ModEffects;
 import net.hydroxa.drgbeer.item.ModItems;
+import net.hydroxa.drgbeer.recipe.DrinkRecipe;
+import net.hydroxa.drgbeer.recipe.DrinkRecipeSerializer;
 import net.hydroxa.drgbeer.sound.ModSounds;
 import net.hydroxa.drgbeer.world.ModConfiguredFeatures;
 import net.hydroxa.drgbeer.world.gen.ModWorldGen;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,5 +28,7 @@ public class DRGBeerMod implements ModInitializer {
 		DRGBeerItemGroups.registerGroups();
 		ModConfiguredFeatures.registerConfiguredFeatures();
 		ModWorldGen.generateModWorldGen();
+		Registry.register(Registry.RECIPE_SERIALIZER, DrinkRecipeSerializer.ID, DrinkRecipeSerializer.INSTANCE);
+		Registry.register(Registry.RECIPE_TYPE, new Identifier(MOD_ID, DrinkRecipe.Type.ID), DrinkRecipe.Type.INSTANCE);
 	}
 }
