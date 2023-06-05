@@ -78,8 +78,7 @@ public enum ModBlocks {
                     of(Material.METAL).
                     nonOpaque().
                     sounds(BlockSoundGroup.METAL)
-                    .requiresTool()
-                    .strength(5.0f, 6.0f)
+                    .strength(1.0f, 3.0f)
     )),
     MUG_BLOCK("mug_block", new MugBlock(
             FabricBlockSettings.

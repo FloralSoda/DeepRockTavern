@@ -32,14 +32,14 @@ public class TapBlock extends WallMountedBlock implements Waterloggable {
     protected static final VoxelShape SOUTH_WALL_SHAPE = Block.createCuboidShape(7.0, 4.5, 0.0, 9.0, 9.0, 7.5);
     protected static final VoxelShape WEST_WALL_SHAPE = Block.createCuboidShape(8.5, 4.5, 7.0, 16.0, 9.0, 9.0);
     protected static final VoxelShape EAST_WALL_SHAPE = Block.createCuboidShape(0.0, 4.5, 7.0, 7.5, 9.0, 9.0);
-    protected static final VoxelShape FLOOR_NORTH_SHAPE = Block.createCuboidShape(7.0, 0.0, -11.0, 9.0, 14.5, 3.0);
-    protected static final VoxelShape FLOOR_SOUTH_SHAPE = Block.createCuboidShape(7.0, 0.0, 13.0, 9.0, 14.5, 25.0);
-    protected static final VoxelShape FLOOR_WEST_SHAPE = Block.createCuboidShape(-11.0, 0.0, 7.0, 3.0, 14.5, 9.0);
-    protected static final VoxelShape FLOOR_EAST_SHAPE = Block.createCuboidShape(13.0, 0.0, 7.0, 25.0, 14.5, 9.0);
-    protected static final VoxelShape CEILING_NORTH_SHAPE = Block.createCuboidShape(7.0, 1.5, -11.0, 9.0, 16, 3.0);
-    protected static final VoxelShape CEILING_SOUTH_SHAPE = Block.createCuboidShape(7.0, 1.5, 13.0, 9.0, 16, 25.0);
-    protected static final VoxelShape CEILING_WEST_SHAPE = Block.createCuboidShape(-11.0, 1.5, 7.0, 3.0, 16, 9.0);
-    protected static final VoxelShape CEILING_EAST_SHAPE = Block.createCuboidShape(13.0, 1.5, 7.0, 25.0, 16, 9.0);
+    protected static final VoxelShape FLOOR_NORTH_SHAPE = Block.createCuboidShape(7.0, 0.0, 0.0, 9.0, 14.5, 3.0);
+    protected static final VoxelShape FLOOR_SOUTH_SHAPE = Block.createCuboidShape(7.0, 0.0, 13.0, 9.0, 14.5, 16.0);
+    protected static final VoxelShape FLOOR_WEST_SHAPE = Block.createCuboidShape(0.0, 0.0, 7.0, 3.0, 14.5, 9.0);
+    protected static final VoxelShape FLOOR_EAST_SHAPE = Block.createCuboidShape(13.0, 0.0, 7.0, 16.0, 14.5, 9.0);
+    protected static final VoxelShape CEILING_NORTH_SHAPE = Block.createCuboidShape(7.0, 1.5, 0.0, 9.0, 16, 3.0);
+    protected static final VoxelShape CEILING_SOUTH_SHAPE = Block.createCuboidShape(7.0, 1.5, 13.0, 9.0, 16, 16.0);
+    protected static final VoxelShape CEILING_WEST_SHAPE = Block.createCuboidShape(0.0, 1.5, 7.0, 3.0, 16, 9.0);
+    protected static final VoxelShape CEILING_EAST_SHAPE = Block.createCuboidShape(13.0, 1.5, 7.0, 16.0, 16, 9.0);
 
     public TapBlock(Settings settings) {
         super(settings);
