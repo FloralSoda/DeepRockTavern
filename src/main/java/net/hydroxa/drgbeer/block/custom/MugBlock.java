@@ -3,13 +3,10 @@ package net.hydroxa.drgbeer.block.custom;
 import net.hydroxa.drgbeer.block.entity.MugBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionUtil;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
@@ -25,10 +22,11 @@ import org.jetbrains.annotations.Nullable;
 public class MugBlock extends HorizontalFacingBlock implements Waterloggable, BlockEntityProvider {
     private static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final BooleanProperty HAS_DRINK = BooleanProperty.of("has_drink");
+    public static final BooleanProperty POURING = BooleanProperty.of("pouring");
     protected static final VoxelShape BOUNDING_SHAPE = Block.createCuboidShape(5.5, 0.0, 5.5, 10.5, 5.0, 10.5);
     public MugBlock(Settings settings, Boolean contains_drink) {
         super(settings);
-        setDefaultState(stateManager.getDefaultState().with(FACING, Direction.NORTH).with(HAS_DRINK, contains_drink).with(WATERLOGGED, false));
+        setDefaultState(stateManager.getDefaultState().with(FACING, Direction.NORTH).with(HAS_DRINK, contains_drink).with(WATERLOGGED, false).with(POURING,false));
     }
 
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
@@ -78,7 +76,7 @@ public class MugBlock extends HorizontalFacingBlock implements Waterloggable, Bl
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, HAS_DRINK, WATERLOGGED);
+        builder.add(FACING, HAS_DRINK, WATERLOGGED, POURING);
     }
 
     @Nullable

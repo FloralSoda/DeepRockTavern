@@ -2,12 +2,11 @@ package net.hydroxa.drgbeer.inventory;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 import org.jetbrains.annotations.Contract;
 
-public interface BarrelInventory extends Inventory {
+public interface BarrelInventory extends MugProvidingInventory {
     DefaultedList<ItemStack> getItems();
     int HOP_A_SLOT = 0;
     int HOP_B_SLOT = 1;
@@ -39,8 +38,20 @@ public interface BarrelInventory extends Inventory {
         return getStack(SOLUTION_SLOT);
     }
     @Contract(pure = true)
-    default ItemStack getOutput() {
+    default ItemStack peekMug() {
         return getStack(OUTPUT_SLOT);
+    }
+    @Contract()
+    default ItemStack popMug() {
+        ItemStack peek = peekMug();
+        ItemStack output = peek.copy();
+        peek.decrement(1);
+
+        return output;
+    }
+    @Contract(pure = true)
+    default boolean hasMug() {
+        return !peekMug().isEmpty();
     }
 
     default void setHopA(ItemStack stack) {

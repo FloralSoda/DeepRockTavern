@@ -46,7 +46,7 @@ public class MugItem extends BlockItem {
 
     @Override
     public ActionResult place(ItemPlacementContext context) {
-        if (context.getPlayer() == null || context.getPlayer().isSneaking())
+        if (context.getPlayer() == null || context.getPlayer().isSneaking() || effect == null)
             return super.place(context);
         else
             return ActionResult.PASS;

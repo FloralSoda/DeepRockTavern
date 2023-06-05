@@ -1,0 +1,53 @@
+{
+  "variants": {
+    "face=wall,facing=north": {
+      "model":  "drgbeer:blocks/tap_horizontal"
+    },
+    "face=wall,facing=east": {
+      "model":  "drgbeer:blocks/tap_horizontal",
+      "y": 90
+    },
+    "face=wall,facing=south": {
+      "model":  "drgbeer:blocks/tap_horizontal",
+      "y": 180
+    },
+    "face=wall,facing=west": {
+      "model":  "drgbeer:blocks/tap_horizontal",
+      "y": -90
+    },
+    "face=floor,facing=north": {
+      "model":  "drgbeer:blocks/tap_vertical"
+    },
+    "face=floor,facing=east": {
+      "model":  "drgbeer:blocks/tap_vertical",
+      "y": 90
+    },
+    "face=floor,facing=south": {
+      "model":  "drgbeer:blocks/tap_vertical",
+      "y": 180
+    },
+    "face=floor,facing=west": {
+      "model":  "drgbeer:blocks/tap_vertical",
+      "y": -90
+    },
+    "face=ceiling,facing=north": {
+      "model":  "drgbeer:blocks/tap_vertical",
+      "x": 180,
+      "y": 180
+    },
+    "face=ceiling,facing=east": {
+      "model":  "drgbeer:blocks/tap_vertical",
+      "x": 180,
+      "y": -90
+    },
+    "face=ceiling,facing=south": {
+      "model":  "drgbeer:blocks/tap_vertical",
+      "x": 180
+    },
+    "face=ceiling,facing=west": {
+      "model":  "drgbeer:blocks/tap_vertical",
+      "y": 90,
+      "x": 180
+    }
+  }
+}

@@ -1,6 +1,5 @@
 package net.hydroxa.drgbeer.block.entity;
 
-import net.hydroxa.drgbeer.DRGBeerMod;
 import net.hydroxa.drgbeer.inventory.BarrelInventory;
 import net.hydroxa.drgbeer.recipe.DrinkRecipe;
 import net.hydroxa.drgbeer.state.property.ModProperties;
@@ -92,10 +91,33 @@ public class BarrelBlockEntity extends BlockEntity implements BarrelInventory, S
             } else {
                 output = ItemStack.EMPTY;
                 timeLeft = 0;
+
+                if (state.get(ModProperties.BREWING))
+                    world.setBlockState(pos, state.with(ModProperties.BREWING, false));
+
                 return false;
             }
         }
 
+        return false;
+    }
+
+    @Override
+    public ItemStack popMug() {
+        ItemStack mug = BarrelInventory.super.popMug();
+        if (!hasMug())
+            world.setBlockState(pos, world.getBlockState(pos).with(ModProperties.READY, false));
+
+        return mug;
+    }
+
+    @Override
+    public boolean addMug(ItemStack mug) {
+        ItemStack outStack = peekMug();
+        if (outStack != ItemStack.EMPTY && outStack.getItem() == mug.getItem() && outStack.getCount() < outStack.getMaxCount()) {
+            outStack.increment(1);
+            return true;
+        }
         return false;
     }
 
@@ -105,7 +127,8 @@ public class BarrelBlockEntity extends BlockEntity implements BarrelInventory, S
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, BarrelBlockEntity be) {
-        be.timeLeft--;
+        if (be.timeLeft > 0)
+            be.timeLeft--;
 
         if (be.timeLeft == 0 && !state.get(ModProperties.READY)) {
             world.setBlockState(pos, state.with(ModProperties.READY, true).with(ModProperties.BREWING, false));
@@ -113,8 +136,6 @@ public class BarrelBlockEntity extends BlockEntity implements BarrelInventory, S
             for (int i = BarrelInventory.HOP_A_SLOT; i <= BarrelInventory.OUTPUT_SLOT; i++)
                 be.setStack(i, ItemStack.EMPTY);
             be.setOutput(be.output);
-
-            DRGBeerMod.LOGGER.info("{}",be.getOutput().isEmpty());
         }
     }
 }

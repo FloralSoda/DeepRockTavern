@@ -3,6 +3,8 @@ package net.hydroxa.drgbeer.block.custom;
 import net.hydroxa.drgbeer.ModTags;
 import net.hydroxa.drgbeer.block.entity.BarrelBlockEntity;
 import net.hydroxa.drgbeer.inventory.BarrelInventory;
+import net.hydroxa.drgbeer.item.ModItems;
+import net.hydroxa.drgbeer.item.custom.MugItem;
 import net.hydroxa.drgbeer.mixin.BucketItemAccessor;
 import net.hydroxa.drgbeer.state.property.ModProperties;
 import net.minecraft.block.*;
@@ -85,25 +87,9 @@ public class BarrelBlock extends BlockWithEntity implements Waterloggable, Block
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         super.randomTick(state, world, pos, random);
-        BarrelBlockEntity.tick(world, pos, state, (BarrelBlockEntity)world.getBlockEntity(pos));
+        if (state.get(BREWING))
+            BarrelBlockEntity.tick(world, pos, state, (BarrelBlockEntity)world.getBlockEntity(pos));
     }
-
-//    @Override
-//    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-//        if (state.get(READY)) {
-//            double x = (double) pos.getX() + 0.5;
-//            double y = (double) pos.getY() + 1;
-//            double z = (double) pos.getZ() + 0.5;
-//            world.addParticle(ParticleTypes.ENTITY_EFFECT, x, y, z, world.random.nextFloat(-0.1f, 0.1f), 0.0, world.random.nextFloat(-0.1f, 0.1f));
-//        } else if (state.get(BREWING)) {
-//            double x = (double) pos.getX() + 0.5;
-//            double y = (double) pos.getY() + 1;
-//            double z = (double) pos.getZ() + 0.5;
-//            BarrelBlockEntity be = (BarrelBlockEntity)world.getBlockEntity(pos);
-//
-//            world.addParticle(be.getEffect(), x, y, z, world.random.nextFloat(-0.1f, 0.1f), 0.0, world.random.nextFloat(-0.1f, 0.1f));
-//        }
-//    }
 
     @Override
     public boolean emitsRedstonePower(BlockState state) {
@@ -115,11 +101,16 @@ public class BarrelBlock extends BlockWithEntity implements Waterloggable, Block
         return state.get(ModProperties.BREWING) ? 8 : (state.get(ModProperties.READY) ? 15 : 0);
     }
 
+    public static void addItemNoise(PlayerEntity player, World world, BlockPos blockPos) {
+        world.playSound(player, blockPos, SoundEvents.BLOCK_BARREL_OPEN, SoundCategory.BLOCKS, 0.25f, 1);
+        world.playSound(player, blockPos, SoundEvents.BLOCK_BARREL_CLOSE, SoundCategory.BLOCKS, 0.5f, 1);
+    }
+
     @Override
     public ActionResult onUse(BlockState blockState, World world, BlockPos blockPos, PlayerEntity player, Hand hand, BlockHitResult blockHitResult) {
         if (world.isClient)
-            if (!(player.getStackInHand(hand).isOf(Items.BUCKET) || player.getStackInHand(hand).isIn(ModTags.Items.SOLUTIONS))) //This stops liquids from being placed by the client
-                return ActionResult.PASS;
+            if (player.getStackInHand(hand).isIn(ModTags.Items.SOLUTIONS) || player.getStackInHand(hand).isIn(ModTags.Items.HOPS) || player.getStackInHand(hand).isIn(ModTags.Items.CATALYSTS)) //This stops liquids and blocks from being placed by the client
+                return ActionResult.FAIL;
 
         BarrelBlockEntity blockEntity = (BarrelBlockEntity) world.getBlockEntity(blockPos);
 
@@ -135,6 +126,7 @@ public class BarrelBlock extends BlockWithEntity implements Waterloggable, Block
                         blockEntity.checkValidRecipe(world, blockPos, blockState);
 
                         itemInHand.decrement(1);
+                        addItemNoise(player, world, blockPos);
                         return ActionResult.SUCCESS;
                     }
                 }
@@ -147,6 +139,7 @@ public class BarrelBlock extends BlockWithEntity implements Waterloggable, Block
                 blockEntity.checkValidRecipe(world, blockPos, blockState);
 
                 itemInHand.decrement(1);
+                addItemNoise(player, world, blockPos);
 
                 return ActionResult.SUCCESS;
             } else if (itemInHand.isIn(ModTags.Items.SOLUTIONS) && blockEntity.getSolution().isEmpty()) {
@@ -192,23 +185,17 @@ public class BarrelBlock extends BlockWithEntity implements Waterloggable, Block
                 }
 
                 return ActionResult.SUCCESS;
+            } else if (itemInHand.getItem() instanceof MugItem mi && mi.effect != null) {
+                if (blockEntity.addMug(itemInHand)) {
+                    itemInHand.decrement(1);
+                    player.getInventory().offerOrDrop(new ItemStack(ModItems.MUG.Item));
+
+                    world.playSound(player, blockPos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1, 1);
+                    if (!blockState.get(READY))
+                        world.setBlockState(blockPos, blockState.with(READY, true));
+                }
             }
-        } else if (!world.isClient) {
-            //TEMP CODE FOR TESTING PURPOSES : RIGHT CLICK TO REMOVE OUTPUT
-            if (!blockEntity.getOutput().isEmpty())
-            {
-                world.playSound(player, blockPos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS,1, 1);
-
-                player.getInventory().offerOrDrop(blockEntity.getOutput());
-                blockEntity.setOutput(ItemStack.EMPTY);
-                blockEntity.checkValidRecipe(world, blockPos, blockState);
-
-                world.setBlockState(blockPos, blockState.with(ModProperties.READY, false));
-
-                return ActionResult.SUCCESS;
-            }
-
-
+        } else if (!world.isClient && hand == Hand.MAIN_HAND) {
             //This goes backwards so the catalyst and hops are extracted in order of insertion (though catalyst will be extracted first)
             for (int i = BarrelInventory.CATALYST_SLOT; i >= BarrelInventory.HOP_A_SLOT; i--) {
                 if (!blockEntity.getStack(i).isEmpty()) {

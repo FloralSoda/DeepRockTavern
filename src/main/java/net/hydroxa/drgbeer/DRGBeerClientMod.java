@@ -14,5 +14,7 @@ public class DRGBeerClientMod implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.STARCH_NUT.asBlock(), RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.YEAST_CONE.asBlock(), RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MUG_BLOCK.asBlock(), RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BARREL.asBlock(), RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TAP.asBlock(), RenderLayer.getCutout());
     }
 }

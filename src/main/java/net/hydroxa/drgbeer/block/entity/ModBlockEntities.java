@@ -16,6 +16,10 @@ public class ModBlockEntities {
             Registry.BLOCK_ENTITY_TYPE,
             new Identifier(DRGBeerMod.MOD_ID, "barrel_block_entity"),
             FabricBlockEntityTypeBuilder.create(BarrelBlockEntity::new, ModBlocks.BARREL.asBlock()).build());
+    public static final BlockEntityType<StorageBarrelBlockEntity> STORAGE_BARREL_BLOCK_ENTITY = Registry.register(
+            Registry.BLOCK_ENTITY_TYPE,
+            new Identifier(DRGBeerMod.MOD_ID, "storage_barrel_block_entity"),
+            FabricBlockEntityTypeBuilder.create(StorageBarrelBlockEntity::new, ModBlocks.BARREL.asBlock()).build());
 
     public static void registerBlockEntities() {
         DRGBeerMod.LOGGER.info("Registering block entities");
